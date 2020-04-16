@@ -8,10 +8,9 @@ public class PercolationStats {
 
 
     private final double[] fractions;
-    private static double confidence_95 = 1.96;
     private final double stdDev;
     private final double meanValue;
-
+    private final static double CONFIDENCE_95 = 1.96;
 
     // perform independent trials on an n-by-n grid
     public PercolationStats(int n, int trials) {
@@ -25,14 +24,13 @@ public class PercolationStats {
         for (int i = 0; i < trials; i++) {
 
             Percolation perlocation = new Percolation(n);
-            // int openSites = 0;
+
 
             while (!perlocation.percolates()) {
                 int randomRow = StdRandom.uniform(n) + 1;
                 int randomCol = StdRandom.uniform(n) + 1;
                 if (!perlocation.isOpen(randomRow, randomCol)) {
                     perlocation.open(randomRow, randomCol);
-                    // openSites++;
                 }
             }
 
@@ -57,12 +55,12 @@ public class PercolationStats {
 
     // low endpoint of 95% confidence interval
     public double confidenceLo() {
-        return this.meanValue - confidence_95 * this.stdDev / Math.sqrt(fractions.length);
+        return this.meanValue - CONFIDENCE_95 * this.stdDev / Math.sqrt(fractions.length);
     }
 
     // high endpoint of 95% confidence interval
     public double confidenceHi() {
-        return this.meanValue + confidence_95 * this.stdDev / Math.sqrt(fractions.length);
+        return this.meanValue + CONFIDENCE_95 * this.stdDev / Math.sqrt(fractions.length);
     }
 
     // test client (see below)
