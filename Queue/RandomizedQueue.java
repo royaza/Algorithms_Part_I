@@ -46,6 +46,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
         if (N > 0 && N == s.length / 4) resizeArray(s.length / 2);
 
+
         int randomIndex = StdRandom.uniform(N); // a random number between 0 and N
 
         Item item;
