@@ -131,51 +131,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // unit testing (required)
     public static void main(String[] args) {
-        // int n = 5;
-      /*  In in = new In(args[0]);
-        int n = in.readInt();
-
-        In in2 = new In(args[0]);
-
-
-        StdOut.println("n: " + n);
-
-        RandomizedQueue<Integer> randomizedQueue = new RandomizedQueue<>(n);
-
-        for (int i = 0; i < n; i++) {
-            int input = in.readInt();
-            randomizedQueue.enqueue(input);
-        }
-
-        for (int myrand : randomizedQueue)
-
-            StdOut.println("rand 1: " + myrand);
-
-        StdOut.println("sample before remove: " + randomizedQueue.sample());
-
-        randomizedQueue.dequeue();
-
-        StdOut.println("----------------------------------");
-
-        for (int myrand2 : randomizedQueue)
-
-            StdOut.println("rand 2: " + myrand2);
-
-        StdOut.println("sample: " + randomizedQueue.sample());
-
-        StdOut.println("sample2: " + randomizedQueue.sample());*/
-
-
-        int n = 5;
-        RandomizedQueue<Integer> queue = new RandomizedQueue<>();
-       /* for (int i = 0; i < n; i++)
-            queue.enqueue(i);
-        for (int a : queue) {
-            for (int b : queue)
-                StdOut.print(a + "-" + b + " ");
-            StdOut.println();
-        }*/
-
 
     }
 

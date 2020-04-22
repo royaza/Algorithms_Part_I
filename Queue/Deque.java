@@ -155,35 +155,6 @@ public class Deque<Item> implements Iterable<Item> {
     // unit testing (required)
     public static void main(String[] args) {
 
-        // int n = 5;
-      /*  In in = new In(args[0]);
-        int n = in.readInt();
-
-        StdOut.println("n: " + n);
-
-        Deque<Integer> queue = new Deque<>();
-
-        for (int i = 0; i < n; i++) {
-            int input = in.readInt();
-            queue.addFirst(input);
-            queue.addLast(input);
-
-        }
-
-
-        for (int myDeque : queue)
-
-            StdOut.println(myDeque);
-
-
-        queue.removeFirst();
-        queue.removeLast();
-
-        for (int myDeque : queue)
-
-            StdOut.println("After removing first and last: " + myDeque);*/
-
-
     }
 
 }
