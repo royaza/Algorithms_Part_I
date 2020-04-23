@@ -167,5 +167,4 @@ public class Point implements Comparable<Point> {
         System.out.print(myPSlope);
 
     }
-
 }

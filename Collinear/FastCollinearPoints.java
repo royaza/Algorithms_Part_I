@@ -17,6 +17,7 @@ public class FastCollinearPoints {
     public FastCollinearPoints(Point[] points)  // finds all line segments containing 4 or more points
     {
 
+        checkNull(points);
         List<LineSegment> segmentList = new ArrayList<>(); // It restore the start and end points of a line segment
 
         Point[] sortedPoints = points.clone();
@@ -82,9 +83,16 @@ public class FastCollinearPoints {
             if (points[i].compareTo(points[i + 1]) == 0) {
                 throw new IllegalArgumentException("Double point found");
             }
-            if (points[i] == null) {
-                throw new IllegalArgumentException("Null Point is not accepted");
-            }
+
+        }
+    }
+
+    private void checkNull(Point[] points) {
+        if (points == null) {
+            throw new IllegalArgumentException("Null array is not accepted");
+        }
+        for (Point point : points) {
+            if (point == null) throw new IllegalArgumentException("Null Point is not accepted");
         }
     }
 
@@ -99,6 +107,10 @@ public class FastCollinearPoints {
             int x = in.readInt();
             int y = in.readInt();
             points[i] = new Point(x, y);
+
+            if (points[i] == null) {
+                throw new IllegalArgumentException("Null Point is not accepted");
+            }
         }
 
 
@@ -107,6 +119,9 @@ public class FastCollinearPoints {
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         for (Point p : points) {
+            if (p == null) {
+                throw new IllegalArgumentException("Null Point is not accepted");
+            }
             p.draw();
         }
         StdDraw.show();

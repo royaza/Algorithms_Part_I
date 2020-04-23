@@ -15,13 +15,20 @@ public class BruteCollinearPoints {
 
     public BruteCollinearPoints(Point[] points) // finds all line segments containing 4 points
     {
-
+        checkNull(points);
         List<LineSegment> segmentList = new ArrayList<>(); // It restore the start and end points of a line segment
 
         Point[] sortedPoints = points.clone();
-        checkException(sortedPoints);
-
         Arrays.sort(sortedPoints);
+        CheckException(sortedPoints);
+
+
+        //Point[] sortedPoints = points.clone();
+        if (!(sortedPoints == null)) {
+            Arrays.sort(sortedPoints);
+        } else {
+            throw new IllegalArgumentException("Null Point is not accepted");
+        }
 
         for (int i = 0; i < sortedPoints.length - 3; i++) {
 
@@ -90,18 +97,24 @@ public class BruteCollinearPoints {
     }
 
 
-    private void checkException(Point[] points) {
-
-        for (int i = 0; i < points.length; i++) {
-            if (points[i].compareTo(points[i + 1]) == 0) {
-                throw new IllegalArgumentException("Double point found");
-            }
-            if (points[i] == null) {
-                throw new IllegalArgumentException("Null Point is not accepted");
-            }
+    private void checkNull(Point[] points) {
+        if (points == null) {
+            throw new IllegalArgumentException("Null array is not accepted");
+        }
+        for (Point point : points) {
+            if (point == null) throw new IllegalArgumentException("Null Point is not accepted");
         }
     }
 
+    private void CheckException(Point[] points) {
+
+        for (int i = 0; i < points.length - 1; i++) {
+            if (points[i].compareTo(points[i + 1]) == 0) {
+                throw new IllegalArgumentException("Double point found");
+            }
+
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -114,6 +127,10 @@ public class BruteCollinearPoints {
             int x = in.readInt();
             int y = in.readInt();
             points[i] = new Point(x, y);
+
+            if (points[i] == null) {
+                throw new IllegalArgumentException("Null Point is not accepted");
+            }
         }
 
 
@@ -122,6 +139,9 @@ public class BruteCollinearPoints {
         StdDraw.setXscale(0, 32768);
         StdDraw.setYscale(0, 32768);
         for (Point p : points) {
+            if (p == null) {
+                throw new IllegalArgumentException("Null Point is not accepted");
+            }
             p.draw();
         }
         StdDraw.show();
